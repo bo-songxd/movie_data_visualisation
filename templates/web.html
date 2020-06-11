@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" type = "text/css" href="web.css">
+<body>
+<form action = submit method="post">
+
+  <div class="form-inline">
+    <div class="form-group">
+      <input type="text" class="line-input" name="moviename" placeholder="电影名称">
+    </div>
+
+  <select name = 'area' id="area" value={{area}}>
+
+
+    <option value = "中国" >中国</option>
+    <option value = "香港">香港</option>
+    <option  value = "日本">日本</option>
+      <option  value = "美国">美国</option>
+    <option  value="英国">英国</option>
+    <option  value = "印度">印度</option>
+  </select>
+
+  </div>
+
+  <div class="form-inline">
+
+   <select name="time" id = 'time' >
+
+    <option  value = 'less'>九十分钟以下</option>
+    <option value="more">九十分钟以上</option>
+
+
+
+</select>
+    <div class="date">
+      开始日期
+  <input type="date" name = "startdate">
+</div>
+    <div class = "date">
+      结束日期
+      <input type = "date" name = "enddate">
+    </div>
+  </div>
+
+  <div class=" form-group">
+    <button type="submit" class="btn btn-light text-primary btn-block" style="margin : 20px 20px -10px 0px">Send Message</button>
+  </div>
+
+  </form>
+
+     <table>
+         <thead>
+            <tr>
+               <th>电影名称</th>
+               <th>地区</th>
+               <th>时长</th>
+               <th>票房</th>
+                <th>排片占比</th>
+                <th>人次</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for movie in result %}
+               <tr>
+                   <td ><a href = 'draw/{{movie.ID}}'>{{ movie.NAME }}</a></td>
+                  <td>{{ movie.AREA }}</td>
+                  <td>{{ movie.TIME }}</td>
+                  <td>{{ movie.TOTALBOX}}</td>
+                   <td>{{ movie.SCHEDULEPERCENTAGE }}</td>
+                   <td>{{ movie.PERSONTIME }}</td>
+
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+{{pagination.links}}
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
