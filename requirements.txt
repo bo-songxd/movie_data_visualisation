@@ -19,7 +19,7 @@ macropy3==1.1.0b2
 MarkupSafe==1.1.1
 numpy==1.18.3
 pandas==1.0.3
-Pillow==7.1.2
+Pillow==9.0.0
 prettytable==0.7.2
 pyecharts==0.5.11
 pyecharts-javascripthon==0.0.6
